@@ -1,8 +1,8 @@
 {
-  "name": "charr-v2",
+  "name": "damageportal-dashboard",
   "version": "0.0.1",
   "description": "Damage Portal Server",
-  "repository": "https://github.com/cwille2012/CHARR-V2.git",
+  "repository": "https://github.com/cwille2012/damageportal-dashboard.git",
   "author": "Christopher Wille",
   "scripts": {
     "start-dev": "nodemon --exec 'node -r dotenv/config debug.js'",
