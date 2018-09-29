@@ -1,0 +1,30 @@
+<body class="accountlist">   
+    <div id="app">
+        <center>
+            <h3>{{header}}</h3>
+            <table style="width: 90%; text-align: center">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Access</th>
+                        <th>More Information</th>
+                        <th>Remove Account</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each accounts}}
+                    <tr>
+                        <td>{{this.firstname}} {{this.lastname}}</td>
+                        <td>{{this.email}}</td>
+                        <td>{{this.access}}</td>
+                        <td><button value={{this.email}} onclick="viewAccount(this.value)">More Details</button></td>
+                        <td><button value={{this.email}} onclick="removeAccount(this.value)">Remove Account</button></td>
+                    </tr>  
+                {{/each}}
+                </tbody>
+            </table>
+            <button onclick="window.location='/'">Back</button>
+        </center>
+    </div>
+</body>

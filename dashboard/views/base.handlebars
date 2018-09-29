@@ -1,0 +1,29 @@
+<body class="base" onload="mapBase({{base.lat}}, {{base.long}})">   
+    <div id="app">
+        <center>
+            <h2>{{title}}</h2>
+            <h3>{{base.name}}</h3>
+            <b>Name:</b> <div id='name'>{{base.name}}</div>
+            <br>
+            <br>
+            <b>Latitude:</b> <div id='lat'>{{base.lat}}</div>
+            <br>
+            <br>
+            <b>Longitude:</b> <div id='long'>{{base.long}}</div>
+            <br>
+            <br>
+            <b>Capacity:</b> <div id='capacity'>{{base.capacity}}</div>
+            <br>
+            <br>
+            <b>Docked:</b> <div>{{base.docked}}</div>
+            <br>
+            <br>
+            <div id='buttons'>
+                <button onclick="window.location='/bases'">Back</button>
+                <button onclick="editBase()">Edit</button>
+                <button onclick="removeBase()">Remove</button>
+            </div>
+        </center>
+    </div>
+    <script src="/bases.js"></script>
+</body>

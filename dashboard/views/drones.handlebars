@@ -1,0 +1,34 @@
+<body class="drones">   
+    <div id="app">
+        <center>
+            <h3>{{header}}</h3>
+            <table style="width: 90%; text-align: center">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Current Job</th>
+                        <th>Battery</th>
+                        <th>Status</th>
+                        <th>Last Update</th>
+                        <th>More Information</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each drones}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.currentJob}}</td>
+                        <td>{{this.battery}}</td>
+                        <td>{{this.status}}</td>
+                        <td>{{this.lastUpdate}}</td>
+                        <td><button value={{this._id}} onclick="window.location='/drones/{{this._id}}'">More Details</button></td>
+                    </tr>  
+                {{/each}}
+                </tbody>
+            </table>
+            <button onclick="window.location='/'">Back</button>
+            <button onclick="window.location='/connectdrone'">Add Drone</button>
+        </center>
+    </div>
+    <script src="/drones.js"></script>
+</body>

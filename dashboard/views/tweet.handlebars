@@ -1,0 +1,28 @@
+<body class="drone" onload="showTweetMap('{{this.coordinates}}')">   
+    <div id="app">
+        <center>
+            <h2>{{title}}</h2>
+            <b>Tweet ID: </b>{{tweet._id}}<br>
+            <b>Date: </b>{{tweet.date}}<br>
+            <b>Username: </b>{{tweet.user}}<br>
+            <b>Message: </b>{{tweet.message}}<br>
+            <h4 style='margin-bottom: 5px; margin-top: 15px;'>Attached Image</h4>
+            <img src={{tweet.img}} alt='Image not found' style='max-width: 90%;'>
+            <br>
+            <h4 style='margin-bottom: 5px; margin-top: 5px;'>Coordinates</h4>
+            {{tweet.coordinates}}
+            <br>
+            <h4 style='margin-bottom: 5px; margin-top: 15px;'>Classifiers</h4>
+            {{#each tweet.classifiers}}
+                {{this.class}}, {{this.score}}<br>
+            {{/each}}
+            <br>
+            <div id='buttons'>
+                <button onclick="window.location='/jobs'">Back</button>
+                <button onclick="addTweetToQueue('{{this._id}}')">Add to Queue</button>
+                <button onclick="removeTweet('{{this._id}}')">Remove</button>
+            </div>
+        </center>
+    </div>
+    <script src="/jobs.js"></script>
+</body>

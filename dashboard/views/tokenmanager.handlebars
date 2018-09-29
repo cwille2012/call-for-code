@@ -1,0 +1,35 @@
+<body class="tokenmanager">   
+    <div id="app">
+        <center>
+            <h3>{{title}}</h3>
+            <div id="passholder">
+                Please enter your password before proceeding.<br>
+                <br>
+                Password: <input type="password" id="password"></input><br>
+            </div>
+            <br>
+            <div id="count">
+                Existing Tokens ({{tokens.length}}):
+            </div>
+            <div id="tokens" style="font-size: 14px;">
+                {{#each tokens}}
+                    {{this.token}}
+                {{/each}}
+            </div>
+            <br>
+            <div id="token">
+                To generate a new token associated with your account, click below:<br>
+                <button onclick="requestToken()">Generate Token</button>
+            </div>
+            <br>
+            <div id="cleartoken">
+                To clear all tokens associated with your account, click below:<br>
+                <button onclick="clearTokens()">Clear Tokens</button>
+            </div>
+            <br>
+            <br>
+            <button onclick="window.location='/'">Back</button>
+        </center>
+    </div>
+    <script src="/tokens.js"></script>
+</body>

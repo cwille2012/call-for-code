@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8' />
+        <title>Map</title>
+        <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+        <script src='./vendor/mapbox/mapbox-gl.js'></script>
+        <link href='./vendor/mapbox/mapbox-gl.css' rel='stylesheet' />
+        <script src="./vendor/engine.io/engine.io.js"></script>
+        <script src='./socket.js'></script>
+        <link href='./css/map.css' rel='stylesheet' />
+    </head>
+    <body id='mapbody' onload="updateStatus()">
+        <div id='map'></div>
+        <div id='menu'>
+            <select id='layer-list' onchange='changeLayer()'>
+                <option class='style-option' value="basic">Basic</option>
+                <option class='style-option' value="streets">Streets</option>
+                <option class='style-option' value="bright">Bright</option>
+                <option class='style-option' value="light">Light</option>
+                <option class='style-option' value="dark">Dark</option>
+                <option class='style-option' value="satellite">Satellite</option>
+            </select>
+            <input id='addPoint' type='button' value='New Point' onclick='addPoint()'>
+            <input id='viewJobs' type='button' value='View Jobs' onclick='viewJobs()'>
+            <input id='addJob' type='button' value='Create Job' onclick='createJob()'>
+            <input id='jobName' type='text' placeholder='Job Name' style='display: none;'>
+            <input id='jobDescription' type='text' placeholder='Job Description' style='display: none;'>
+            <div id='jobDistance' style='display: none; font-size: 13px;'></div>
+            <input id='saveJob' type='button' value='Save Job' onclick='saveJob()' style='display: none;'>
+        </div>
+        <div id="statusHolder" style="position: fixed; top: 0; right: 0; margin: 5px;">Connecting...</div>
+        <pre id='coordinates' class='coordinates'></pre>
+    </body>
+    <script src='./map.js'></script>
+    <script src='./createpoint.js'></script>
+    <script src='./createjob.js'></script>
+    <script src='./viewjobs.js'></script>
+    <script>
+        function changeLayer() {
+            var layerList = document.getElementById("layer-list");
+            var layer = layerList.options[layerList.selectedIndex].value;
+            map.setStyle('mapbox://styles/mapbox/' + layer + '-v9');
+        }
+    </script>
+</html>

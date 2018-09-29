@@ -1,0 +1,31 @@
+# Put this as first line in main js file: #!/usr/bin/env node
+# Make a symlink: systemctl enable /full/path/to/<appname.service>
+# If this file is edited: systemctl daemon-reload
+# Start: systemctl start <appname>
+# Stop: systemctl stop <appname>
+# See logs: journalctl -u <appname>
+[Unit]
+Description=CHARM Dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Environment=SERVER_URL='http://169.62.169.178:80'
+Environment=SERVER_PORT=80
+Environment=SOCKET_URL='ws://169.62.169.178:9601'
+Environment=SOCKET_PORT=9601
+Environment=DATABASE_URL='mongodb://admin:RJCPVTPREEJYKKUN@portal-ssl225-37.bmix-dal-yp-43b98459-c03d-40ab-b561-8ce061fa772e.4277083010.composedb.com:58883,portal-ssl229-38.bmix-dal-yp-43b98459-c03d-40ab-b561-8ce061fa772e.4277083010.composedb.com:58883/compose?authSource=admin&ssl=true'
+Environment=VALIDATE_EMAIL=true
+Environment=EMAIL_HOST='smtp.gmail.com'
+Environment=EMAIL_ADDRESS='dashboardreset@gmail.com'
+Environment=EMAIL_USER='dashboardreset@gmail.com'
+Environment=EMAIL_PASSWORD='buster5buster5'
+Environment=SESSION_TIMEOUT=60
+Environment=MAX_USER_TOKENS=4
+ExecStart=/usr/bin/node /root/CHARR-V2/server/server.js
+Restart=on-failure
+WorkingDirectory=/root/CHARR-V2
+
+[Install]
+WantedBy=multi-user.target

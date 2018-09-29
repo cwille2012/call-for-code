@@ -1,0 +1,35 @@
+<body class="drones">   
+    <div id="app">
+        <center>
+            <h3>{{header}}</h3>
+            <table style="width: 90%; text-align: center">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                        <th>Capacity</th>
+                        <th>Docked</th>
+                        <th>More Information</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each bases}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.lat}}</td>
+                        <td>{{this.long}}</td>
+                        <td>{{this.capacity}}</td>
+                        <td>{{this.docked}}</td>
+                        <td><button value={{this._id}} onclick="window.location='/bases/{{this._id}}'">More Details</button></td>
+                    </tr>  
+                {{/each}}
+                </tbody>
+            </table>
+            <br>
+            <button onclick="window.location='/'">Back</button>
+            <button onclick="window.location='/newbase'">Add Base Station</button>
+        </center>
+    </div>
+    <script src="/drones.js"></script>
+</body>

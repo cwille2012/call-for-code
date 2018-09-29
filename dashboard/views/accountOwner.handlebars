@@ -1,0 +1,23 @@
+<body class="admin">   
+    <div id="app">
+        <center>
+            <h3>{{name}}</h3>
+            <table style="width: 90%; max-width: 400px; margin-bottom: 20px; text-align: left">
+                <tbody>
+                    <tr><td>Email</td><td id="email">{{account.email}}</td></tr>
+                    <tr><td>First Name</td><td id="firstname">{{account.firstname}}</td></tr>
+                    <tr><td>Last Name</td><td id="lastname">{{account.lastname}}</td></tr>
+                    <tr><td>Phone Number</td><td id="phone">{{account.phone}}</td></tr>
+                    <tr><td>Address Line 1</td><td id="address1">{{account.address1}}</td></tr>
+                    <tr><td>Address Line 2</td><td id="address2">{{account.address2}}</td></tr>
+                    <tr><td>City</td><td id="city">{{account.city}}</td></tr>
+                    <tr><td>State</td><td id="state">{{account.state}}</td></tr>
+                    <tr><td>Zipcode</td><td id="zipcode">{{account.zipcode}}</td></tr>
+                </tbody>
+            </table>
+            <button id="backbutton" onclick="window.location='/'">Back</button>
+            <button id="editbutton" value={{account.email}} onclick="editAccount(this.value)">Edit Account</button>
+            <button id="removebutton" value={{account.email}} onclick="removeAccount(this.value)">Remove Account</button>
+        </center>
+    </div>
+</body>

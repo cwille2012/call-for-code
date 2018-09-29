@@ -1,0 +1,81 @@
+<body class="drones">   
+    <div id="app">
+        <center>
+            <h2>{{header}}</h2>
+            <h3>Job Queue</h3>
+            <table style="width: 90%; text-align: center">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Distance</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each queue}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.description}}</td>
+                        <td>{{this.distance}}</td>
+                        <td>
+                            <button style='margin-left: 0; margin-right: 0; width: 95px;' value={{this._id}} onclick="window.location='/jobs/{{this._id}}'">More Details</button>
+                            <button style='margin-left: 0; margin-right: 0; width: 95px;' value={{this._id}} onclick="cancelJob('{{this._id}}')">Cancel Job</button>
+                        </td>
+                    </tr>  
+                {{/each}}
+                </tbody>
+            </table>
+            <h3>Saved Jobs</h3>
+            <table style="width: 90%; text-align: center">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Distance</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each saved}}
+                    <tr>
+                        <td>{{this.name}}</td>
+                        <td>{{this.description}}</td>
+                        <td>{{this.distance}}</td>
+                        <td>
+                            <button style='margin-left: 0; margin-right: 0; width: 95px;' value={{this._id}} onclick="window.location='/jobs/{{this._id}}'">More Details</button>
+                            <button style='margin-left: 0; margin-right: 0; width: 95px;' value={{this._id}} onclick="queueJob('{{this._id}}')">Add to Queue</button>
+                        </td>
+                    </tr>  
+                {{/each}}
+                </tbody>
+            </table>
+            <h3>Requested Jobs</h3>
+            <table style="width: 90%; text-align: center">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Message</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each requested}}
+                    <tr>
+                        <td>{{this.user}}</td>
+                        <td>{{this.message}}</td>
+                        <td>
+                            <button style='margin-left: 0; margin-right: 0; width: 95px;' value={{this._id}} onclick="window.location='/tweets/{{this._id}}'">More Details</button>
+                            <button style='margin-left: 0; margin-right: 0; width: 95px;' value={{this._id}} onclick="addTweetToQueue('{{this._id}}')">Add to Queue</button>
+                            <button style='margin-left: 0; margin-right: 0; width: 95px;' value={{this._id}} onclick="removeTweet('{{this._id}}')">Remove</button>
+                        </td>
+                    </tr>  
+                {{/each}}
+                </tbody>
+            </table>
+            <br>
+            <button onclick="window.location='/'">Back</button>
+        </center>
+    </div>
+    <script src="/jobs.js"></script>
+</body>

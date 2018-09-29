@@ -1,0 +1,35 @@
+<body class="drone">   
+    <div id="app">
+        <div id='stream' style="visibility: none;">
+            <img src='http://<ip>/stream?topic=<link to stream1' alt='Stream Offline'>
+        </div>
+        <center>
+            <h2>{{title}}</h2>
+            <h3>{{drone.name}}</h3>
+            <b>Name:</b> <div id='name'>{{drone.name}}</div>
+            <br>
+            <br>
+            <b>IP Address:</b> <div id='ip'>{{drone.ip}}</div>
+            <br>
+            <br>
+            <b>Current Job:</b> <div>{{drone.currentJob}}</div>
+            <br>
+            <br>
+            <b>Status:</b> <div>{{drone.status}}</div>
+            <br>
+            <br>
+            <b>Battery Percentage:</b> <div>{{drone.battery}}</div>
+            <br>
+            <br>
+            <b>Last Update:</b> <div>{{drone.lastUpdate}}</div>
+            <br>
+            <br>
+            <div id='buttons'>
+                <button onclick="window.location='/drones'">Back</button>
+                <button onclick="editDrone()">Edit</button>
+                <button onclick="removeDrone()">Remove</button>
+            </div>
+        </center>
+    </div>
+    <script src="/drones.js"></script>
+</body>

@@ -1,0 +1,17 @@
+<body class="verifyemail" onload="checkStatus()">   
+    <div id="app">
+        <center>
+            <h3>{{title}}</h3>
+            Lost or expired verification email?<br>
+            Click below to send a new one.<br>
+            <br>
+            <div id="verifyemail">
+                Account Email: <input type="text" id="email"></input><br>
+                Password: <input type="password" id="password"></input><br>
+                <br>
+                <button onclick="window.location='/login'">Cancel</button>
+                <button onclick="sendVerification()">Submit</button>
+            </div> 
+        </center>
+    </div>
+</body>

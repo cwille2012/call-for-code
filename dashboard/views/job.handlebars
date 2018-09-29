@@ -1,0 +1,25 @@
+<body class="job" onload="showJobMap('{{job.coordinates}}')">   
+    <div id="app">
+        <center>
+            <h2>{{title}}</h2>
+            <b>Job ID: </b>{{job._id}}<br>
+            <h4 style='margin-bottom: 5px; margin-top: 15px;'>Attached Image</h4>
+            <img src="{{job.img}}" alt='Image not found' style='max-width: 90%;'>
+            <br>
+            <h4 style='margin-bottom: 5px; margin-top: 5px;'>Coordinates</h4>
+            {{job.coordinates}}
+            <br>
+            <h4 style='margin-bottom: 5px; margin-top: 15px;'>Classifiers</h4>
+            {{#each job.classifiers}}
+                {{this.class}}, {{this.score}}<br>
+            {{/each}}
+            <br>
+            <div id='buttons'>
+                <button onclick="window.location='/jobs'">Back</button>
+                <button onclick="addTweetToQueue('{{job._id}}')">Add to Queue</button>
+                <button onclick="removeTweet('{{job._id}}')">Remove</button>
+            </div>
+        </center>
+    </div>
+    <script src="../jobs.js"></script>
+</body>
